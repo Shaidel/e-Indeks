@@ -1,15 +1,29 @@
-﻿@model IEnumerable<AndrewApp.Models.Group>
+@model IEnumerable<AndrewApp.Models.Group>
 
 @{
     ViewData["Title"] = "Grupy";
 }
+
+<input class="btn btn-primary" type="button" value="Wyloguj" id="submit" onclick="logout()" style=" float: right;" />
+
+<script>
+    function logout() {
+        sessionStorage.clear();
+        window.location = "/"; // Redirecting to other page.
+    }</script>
 
 <h1>Grupy</h1>
 
 <p>
     <a asp-action="Create">Utwórz nowy</a>
 </p>
-<table class="table">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Wyszukaj..." title="Type in a name" style=" float: right;">
+<select id="mySelect" style=" float: right; height:30px;">
+    <option>Nazwa grupy</option>
+    <option>Specjalizacja</option>
+    <option>Wydział</option>
+</select>
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
@@ -25,23 +39,62 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialisation.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Department.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialisation.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        //zajmuje sie decydowanie w przydaku
+
+        tr = table.getElementsByTagName("tr");
+        select = document.getElementById("mySelect").addEventListener('change',
+            function () {
+                input.value = "";
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[x];
+                    tr[i].style.display = "";
+                }
+            });
+        //input.setText("");
+        var x = document.getElementById(
+            "mySelect").selectedIndex;
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[x];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+
+</script>
