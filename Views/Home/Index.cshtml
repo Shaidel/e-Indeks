@@ -1,8 +1,99 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Witaj!</h1>
+    <h1 class="display-4">Witaj</h1>
     <p>w e-Indeks - Twoim wirtualnym Biurze Obsługi Studenta</p>
+
+    <br><br><br><br>
+    <div class="container" id="11" style>
+        <div class="main">
+            <!--<h2>Javascript Login Form Validation</h2>-->
+            <form id="form_id" method="post" name="myform">
+                <label style>login :</label><br>
+                <input type="text" name="username" id="username" /><br>
+                <label>hasło :</label><br>
+                <input type="password" name="password" id="password" /><br><br>
+                <input class="btn btn-primary" type="button" value="Login" id="submit" onclick="validate()" />
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="container2" id="12" style>
+
+
+
+        <!--<h2>Javascript Login Form Validation</h2>-->
+        <input class="btn btn-primary" type="button" value="Wyloguj" id="submit" onclick="logout()" />
+
+
+
+    </div>
+
+
+
+
+    <script>
+
+        var attempt = 3; // Variable to count number of attempts.
+        // Below function Executes on click of login button.
+        var zmiennik1 = document.getElementById("11");
+        var zmiennik2 = document.getElementById("12");
+        //var flag = '<%=Session["login"] == null%>';
+        //if(flag.toLowerCase() == 'Logged'){
+        var sesxd = sessionStorage.getItem("login");
+
+        
+        var lockmenu = document.getElementById("hdmenu");
+       
+            
+        
+
+        if (sesxd == 'Logged') {
+            zmiennik2.style.display = "";
+            zmiennik1.style.display = "none";
+            lockmenu.setAttribute("style", "");
+            
+        } else {
+            zmiennik1.style.display = "";
+            zmiennik2.style.display = "none";
+            lockmenu.setAttribute("style", "pointer-events: none;cursor: default;");
+        }
+        function logout() {
+            sessionStorage.clear();
+            window.location = "/"; // Redirecting to other page.
+        }
+        function validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username == "admin" && password == "admin") {
+                alert("Zalogowany");
+                window.location = "/Departments"; // Redirecting to other page.
+                sessionStorage.setItem("login", "Logged");
+                document.getElementById("result").innerHTML = sessionStorage.getItem("login");
+                //document.getElementById('contact-number').innerHTML = PHONE_NUMBER_VALUE;
+
+
+
+
+                return false;
+            }
+            else {
+                attempt--;// Decrementing by one.
+                alert("You have left " + attempt + " attempt;");
+                // Disabling fields after 3 attempts.
+                if (attempt == 0) {
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                    return false;
+                }
+            }
+        }
+    </script>
+
 </div>
