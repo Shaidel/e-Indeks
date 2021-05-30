@@ -6,12 +6,102 @@
     <title>@ViewData["Title"] - e-Indeks</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .fonta-white {
+            color: #f8f9fa !important;
+        }
+
+        .fonta-white:hover {
+                color: #80bdff !important;
+            }
+    </style>
+
+    <style>
+        .formx-control {
+            display: block;
+            //width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+            .formx-control:focus {
+                color: #495057;
+                background-color: #fff;
+                border-color: #80bdff;
+                outline: 0;
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            }
+
+
+
+
+            .formx-control::-webkit-input-placeholder {
+                color: #6c757d;
+                opacity: 1;
+            }
+
+
+
+            .formx-control::-moz-placeholder {
+                color: #6c757d;
+                opacity: 1;
+            }
+
+
+
+            .formx-control:-ms-input-placeholder {
+                color: #6c757d;
+                opacity: 1;
+            }
+
+
+
+            .formx-control::-ms-input-placeholder {
+                color: #6c757d;
+                opacity: 1;
+            }
+
+
+
+            .formx-control::placeholder {
+                color: #6c757d;
+                opacity: 1;
+            }
+
+
+
+            .formx-control:disabled, .form-control[readonly] {
+                background-color: #e9ecef;
+                opacity: 1;
+            }
+
+
+
+        select.formx-control:focus::-ms-value {
+            color: #495057;
+            background-color: #fff;
+        }
+
+        .formx-control::-ms-expand {
+            background-color: transparent;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav  style="        background-color: #343a40 !important;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">e-Indeks</a>
+                <a style=" color: #f8f9fa!important;"class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">e-Indeks</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,28 +109,28 @@
                 <div id="hdmenu" class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">                       
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Departments" asp-action="Index">Wydziały</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Departments" asp-action="Index">Wydziały</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Lecturers" asp-action="Index">Wykładowcy</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Lecturers" asp-action="Index">Wykładowcy</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Classes" asp-action="Index">Przedmioty</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Classes" asp-action="Index">Przedmioty</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Groups" asp-action="Index">Grupy</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Groups" asp-action="Index">Grupy</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Projekty</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Projects" asp-action="Index">Projekty</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Specialisations" asp-action="Index">Specializacje</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Specialisations" asp-action="Index">Specializacje</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Students" asp-action="Index">Studenci</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Students" asp-action="Index">Studenci</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Grades" asp-action="Index">Oceny</a>
+                            <a class="nav-link text-dark fonta-white" asp-area="" asp-controller="Grades" asp-action="Index">Oceny</a>
                         </li>
                     </ul>
                 </div>
