@@ -1,4 +1,4 @@
-﻿@model AndrewApp.Models.Lecturer
+@model AndrewApp.Models.Lecturer
 
 @{
     ViewData["Title"] = "Edytuj";
@@ -53,12 +53,29 @@
             </div>
         </form>
     </div>
-</div>
+    <div class="col-md-8">
+        <!--Foto z edycją-->
+        <div style="margin:50px;height:400px;width:400px;float:right;">
 
-<div>
-    <a asp-action="Index">Powrót do listy</a>
-</div>
+            <img style="border-radius: 50%;height:400px;width:400px;" id="imageid" src="https://devsi.pl/images/empty-avatar.jpg">
+            <center>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                </br>
+                <input style="margin-left:35%;" class="xcustom-file-input" type="file" id="files">
+                </br>
+                </br>
+
+                <font id="state">Brak zdjęcia</font>
+                <a href="#" id="deleteImgs">Usuń zdjęcie</a>
+            </center>
+        </div>
+    </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Powrót do listy</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
