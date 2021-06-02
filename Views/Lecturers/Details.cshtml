@@ -1,4 +1,4 @@
-﻿@model AndrewApp.Models.Lecturer
+@model AndrewApp.Models.Lecturer
 
 @{
     ViewData["Title"] = "Szczegóły";
@@ -9,52 +9,72 @@
 <div>
     <h4>Szczegóły</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkCategory)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WorkCategory)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Department.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Department.Name)
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.WorkCategory)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.WorkCategory)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Mail)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Mail)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Password)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Department.Name)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Department.Name)
+                </dd>
+            </dl>
+            </div>
+        <div class="col-md-6">
+             <!--Foto z edycją-->
+<div style="margin:50px;height:400px;width:400px;float:right;">
+ 
+<img  style="border-radius: 50%;height:400px;width:400px;" id="imageid" src="https://devsi.pl/images/empty-avatar.jpg">
+<center style="display:none;">
+ 
+
+<input style="margin-left:35%;"class="custom-file-input" type="file" id="files">
+ 
+</br>
+</br>
+<font id="state">Brak zdjęcia</font>
+<a href="#" id="deleteImgs">Usuń zdjęcie</a></center>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
-    <a asp-action="Index">Powrót do listy</a>
-</div>
+        </div>
+        </div>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+            <a asp-action="Index">Powrót do listy</a>
+        </div>
